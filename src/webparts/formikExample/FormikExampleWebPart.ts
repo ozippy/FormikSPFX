@@ -11,17 +11,14 @@ import * as strings from 'FormikExampleWebPartStrings';
 import FormikExample from './components/FormikExample';
 import { IFormikExampleProps } from './components/IFormikExampleProps';
 
-export interface IFormikExampleWebPartProps {
-  description: string;
-}
 
-export default class FormikExampleWebPart extends BaseClientSideWebPart<IFormikExampleWebPartProps> {
+export default class FormikExampleWebPart extends BaseClientSideWebPart<IFormikExampleProps> {
 
   public render(): void {
-    const element: React.ReactElement<IFormikExampleProps > = React.createElement(
+    const element: React.ReactElement = React.createElement(
       FormikExample,
       {
-        description: this.properties.description
+
       }
     );
 

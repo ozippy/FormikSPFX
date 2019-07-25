@@ -4,7 +4,8 @@
    * Chrome browser: https://aka.ms/spfx-debugger-extensions
    */
   "version": "0.2.0",
-  "configurations": [{
+  "configurations": [
+    {
       "name": "Local workbench",
       "type": "chrome",
       "request": "launch",
