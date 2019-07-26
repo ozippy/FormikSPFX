@@ -17,7 +17,9 @@ export default class FormikExampleWebPart extends BaseClientSideWebPart<
 > {
   public render(): void {
     const element: React.ReactElement = React.createElement(FormikExample, {
-      description: this.properties.description
+      email: this.context.pageContext.user.email,
+      name: this.context.pageContext.user.displayName,
+      loggedDate: moment().format("DD/MM/YYYY HH:MM:SS")
     });
 
     ReactDom.render(element, this.domElement);
