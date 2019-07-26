@@ -20,6 +20,7 @@
     "@types/styled-components": "^4.1.18",
     "@types/webpack-env": "1.13.1",
     "formik": "^1.5.8",
+    "formik-office-ui-fabric-react": "^1.0.0",
     "moment": "^2.24.0",
     "office-ui-fabric-react": "6.143.0",
     "react": "16.8.5",
