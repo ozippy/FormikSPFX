@@ -7,10 +7,6 @@ export interface FormValues {
   password: string;
 }
 
-export interface OtherProps {
-  title?: string;
-}
-
 export interface MyFormProps {
   initialEmail?: string;
   initialPassword?: string;

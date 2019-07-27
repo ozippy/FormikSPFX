@@ -1,27 +1,11 @@
 import * as React from "react";
 import styles from "./FormikExample.module.scss";
-import { IFormikExampleProps } from "./IFormikExampleProps";
-import { escape, fromPairs } from "@microsoft/sp-lodash-subset";
 import { withFormik, Field, Form } from "formik";
 import * as Yup from "yup";
 
-import { TextField } from "office-ui-fabric-react/lib/TextField";
-import {
-  css,
-  classNamesFunction,
-  DefaultButton,
-  IButtonProps,
-  IStyle,
-  PrimaryButton
-} from "office-ui-fabric-react";
+import { PrimaryButton } from "office-ui-fabric-react";
 
-import { Label } from "office-ui-fabric-react/lib/Label";
-import {
-  FormikTextField,
-  mapFieldToTextField
-} from "formik-office-ui-fabric-react";
-
-import { DefaultPalette } from "office-ui-fabric-react/lib/Styling";
+import { FormikTextField } from "formik-office-ui-fabric-react";
 
 interface FormValues {
   name: string;
@@ -40,20 +24,11 @@ interface MyFormProps {
 }
 
 const InnerForm = props => {
-  const {
-    values,
-    errors,
-    touched,
-    handleChange,
-    handleBlur,
-    isSubmitting,
-    title
-  } = props;
+  const { isSubmitting } = props;
 
   return (
     <div className={styles.formikExample}>
       <h1>IT Service Request</h1>
-      <div className={styles.title}>Hello</div>
       <Form>
         <div>
           <Field
@@ -98,7 +73,7 @@ const InnerForm = props => {
             required
             label='Detailed Description'
           />
-
+          <br />
           <div>
             <PrimaryButton
               disabled={isSubmitting}
@@ -126,10 +101,7 @@ const FormikExample = withFormik<MyFormProps, FormValues>({
     detailedDescription: Yup.string().required("Description is required")
   }),
 
-  handleSubmit(
-    values: FormValues,
-    { props, resetForm, setSubmitting, setErrors }
-  ) {
+  handleSubmit(values: FormValues, { resetForm, setSubmitting, setErrors }) {
     setTimeout(() => {
       if (values.subject === "test") {
         setErrors({ subject: "you can't test it!" });
